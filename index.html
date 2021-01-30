@@ -25,16 +25,12 @@
             </ul>
         </nav>
     </header>
-
     <!--Booking Section-->
     <main class="main-content container">
-
         <div class="booking-content">
             <h1>Cruise Queen</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book./p>
         </div>
-
-
         <div class="booking-form">
             <h3>Book Ocean Time</h3>
             <div class="input-group">
@@ -58,17 +54,13 @@
             <div class="input-group f-class">
                 <div>
                     <label id="curise-total" for="">First Class ($150)</label>
-                    <input id="curise-count" class="inp-style inp-width form-control" type="text" name="" value="1" >
-                    <!-- <input type="text" class="form-control text-center"value="1">  -->
+                    <input id="curise-count" class="inp-style inp-width form-control" type="text" name="" value="1" >                 
                 </div>
-                <div class="plus-minus-btn">
-                    <!-- <button id="curise-increase" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                    <button id="curise-decrease" class="btn btn-default"><i class="fas fa minus"></i></button> -->
+                <div class="plus-minus-btn">                
                      <p> <span><button id="curise-increase" class="btn btn-default"><i class="fas fa-plus"></i>+</button>
                     </span> <span><button id="curise-decrease" class="btn btn-default"><i class="fas fa minus"></i>-</button></span> </p>  
                 </div>
-            </div>
-            
+            </div>           
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
@@ -110,16 +102,28 @@
             <button class="btn-style">Book Now</button>
         </div>
     </main>
-
     <script>
         document.getElementById("curise-increase").addEventListener("click", function(){
+            handleCuriseBooking(true);
+        });
+        document.getElementById('curise-decrease').addEventListener('click', function() {
+            handleCuriseBooking(false);
+        });
+        function handleCuriseBooking(isIncrease){
             const curiseInput = document.getElementById('curise-count');
-            const curiseCount = parseInt(curiseInput.value)
-            const curiseNewCount = curiseCount + 1;
-            curiseInput.value = curiseNewCount;
-            const curiseTotal = curiseNewCount * 150;
-            document.getElementById('curise-total').innerText = 'First Class ($' + curiseTotal + ')';
-        })
+           const curiseCount = parseInt(curiseInput.value);
+        
+        let curiseNewCount = curiseCount;
+        if(isIncrease == true){
+            curiseNewCount = curiseCount + 1;
+        }
+        if (isIncrease == false && curiseCount >0) {
+            curiseNewCount = curiseCount - 1;
+        }
+          curiseInput.value = curiseNewCount;
+          const curiseTotal = curiseNewCount * 150;
+          document.getElementById('curise-total').innerText = 'First Class ($' + curiseTotal + ')';
+        }
     </script>
 
     <!--Thank You-->

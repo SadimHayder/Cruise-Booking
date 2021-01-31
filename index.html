@@ -57,18 +57,20 @@
                     <input id="curise-count" class="inp-style inp-width form-control" type="text" name="" value="1" >                 
                 </div>
                 <div class="plus-minus-btn">                
-                     <p> <span><button id="curise-increase" class="btn btn-default"><i class="fas fa-plus"></i>+</button>
+                    <p> <span><button id="curise-increase" class="btn btn-default"><i class="fas fa-plus"></i>+</button>
                     </span> <span><button id="curise-decrease" class="btn btn-default"><i class="fas fa minus"></i>-</button></span> </p>  
                 </div>
-            </div>           
+            </div> 
+
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label id="curise2-total" for="">Second Class ($100)</label>
+                    <input id="curise2-count" class="inp-style inp-width form-control" type="text" name="" value="1" >
+                    
                 </div>
                 <div class="plus-minus-btn">
-
-                    <p> <span>+</span> <span>-</span> </p>
+                    <p> <span><button id="curise2-increase" class="btn btn-default"><i class="fas fa-plus"></i>+</button>
+                    </span> <span><button id="curise2-decrease" class="btn btn-default"><i class="fas fa minus"></i>-</button></span> </p>
                 </div>
             </div>
             <div class="calculations">
@@ -77,7 +79,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="total-price">$500</p>
                     </div>
                 </div>
 
@@ -105,10 +107,10 @@
     <script>
         document.getElementById("curise-increase").addEventListener("click", function(){
             handleCuriseBooking(true);
-        });
+         });
         document.getElementById('curise-decrease').addEventListener('click', function() {
             handleCuriseBooking(false);
-        });
+         });
         function handleCuriseBooking(isIncrease){
             const curiseInput = document.getElementById('curise-count');
            const curiseCount = parseInt(curiseInput.value);
@@ -123,6 +125,40 @@
           curiseInput.value = curiseNewCount;
           const curiseTotal = curiseNewCount * 150;
           document.getElementById('curise-total').innerText = 'First Class ($' + curiseTotal + ')';
+        }
+
+        // handleCurise2booking
+        document.getElementById("curise2-increase").addEventListener("click", function(){
+            handleCurise2Booking(true);
+        });
+        document.getElementById('curise2-decrease').addEventListener('click', function() {
+            handleCurise2Booking(false);
+        });
+        function handleCurise2Booking(isIncrease){
+            const curise2Input = document.getElementById('curise2-count');
+           const curise2Count = parseInt(curise2Input.value);
+        
+        let curise2NewCount = curise2Count;
+        if(isIncrease == true){
+            curise2NewCount = curise2Count + 1;
+        }
+        if (isIncrease == false && curise2Count >0) {
+            curise2NewCount = curise2Count - 1;
+        }
+          curise2Input.value = curise2NewCount;
+          const curise2Total = curise2NewCount * 100;
+          document.getElementById('curise2-total').innerText = 'Second Class ($' + curise2Total + ')';
+           calculateTotal();
+        }
+        function calculateTotal() {
+            const curiseInput = document.getElementById('curise-count');
+            const curiseCount = parseInt(curiseInput.value);
+
+            const curise2Input = document.getElementById('curise2-count');
+            const cusise2Count = parseInt(cusise2Count.value);
+
+            const totalPrice = cusiseCount * 150 + cusise2Count * 100;
+            document.getElementById('total-price').innerText = '$' + totalPrice;
         }
     </script>
 

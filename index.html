@@ -101,7 +101,10 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <div>
+                <button id="login" class="btn-style">Book Now</button>
+            </div>
+            <!-- <button id="boo" class="btn-style">Book Now</button> -->
         </div>
     </main>
     <script>
@@ -159,6 +162,16 @@
 
             const totalPrice = cusiseCount * 150 + cusise2Count * 100;
             document.getElementById('total-price').innerText = '$' + totalPrice;
+
+
+            // Booking Now 
+        //     const loginBtn = document.getElementById("login")
+        // loginBtn.addEventListener("click", function(){
+        //     const LoginArea = document.getElementById("main-content container");
+        //     mainContentContainer.style.display = "none";
+        //     const transactionArea = document.getElementById("transaction-area");
+        //     transactionArea.style.display = "block";
+        //     })
         }
     </script>
 

@@ -108,7 +108,7 @@ nav ul li a:hover, a.active{
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
-.btn-style{
+.btn-style{ 
     display: block;
     width: 100%;
     padding: 10px;
@@ -116,7 +116,7 @@ nav ul li a:hover, a.active{
     border: none;
     color: #fff;
     font-weight: 500;
-    background-color:  #E33741;
+    background-color:  #E33741; 
 }
 .amount{
     display: flex;
